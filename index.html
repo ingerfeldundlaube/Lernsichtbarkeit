@@ -15,209 +15,196 @@
 
     <div class="rule"></div>
 
-    <div class="grid">
-      <!-- LERNEN AKTIVIEREN -->
-      <div class="card">
+    <!-- Überschriften: 3 Blöcke nebeneinander -->
+    <div class="headers">
+      <div class="hcard">
         <h3>Lernen aktivieren (was tun Lernende im Lernprozess)</h3>
-
-        <div class="row slider-row">
-          <div class="label">Kognitive Aktivierung/Aufgabenqualität</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Lernende wenden vorgegebenes Wissen routiniert an – Lernende aktivieren Vorwissen und erklären Zusammenhänge – Lernende bearbeiten offene, anspruchsvolle Situationen und reflektieren ihr Vorgehen.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten – Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg – Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen
-            </div>
-          </details>
-        </div>
-
-        <div class="row slider-row">
-          <div class="label">Aktive Prozessbeteiligung</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Die Lehrkraft legt Vorgehen fest – Lernende wählen Vorgehensweisen im Rahmen – Lernende planen mit, übernehmen Rollen und stimmen Vorgehen gemeinsam ab.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen - Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens - Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.
-            </div>
-          </details>
-        </div>
-
-        <div class="row slider-row">
-          <div class="label">Selbstwirksamkeit</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Lernen als Pflichterfüllung – erste Erfolge und Fortschritte – Lernende erfahren sich als wirksam und nutzen Erfolge für zukünftige Lernprozesse.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Lernen wir v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt - Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten - Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.
-            </div>
-          </details>
-        </div>
       </div>
-
-      <!-- LERNEN MOTIVIEREN -->
-      <div class="card">
+      <div class="hcard">
         <h3>Lernen motivieren (Warum bleiben Lernende dran und bringen sich ein?)</h3>
+      </div>
+      <div class="hcard">
+        <h3>Lernen sichtbar machen (Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</h3>
+      </div>
+    </div>
 
-        <div class="row slider-row">
-          <div class="label">Bedeutsamkeit und Sinn des Lerngegenstandes</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Pflichtaufgaben – Ziele erklärt und punktuell verknüpft – knüpft an Fragen/Erfahrungen an und wird als bedeutsam erlebt.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt - Lerngegenstände werden in ihren Zielen erklärt und punktuell mit Erfahrungen oder Interessen der Lernenden verknüpft - Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt
-            </div>
-          </details>
+    <!-- ZEILE 1: 1.1 / 2.1 / 3.1 -->
+    <div class="rowgrid">
+      <div class="cell slider-row">
+        <div class="label">Kognitive Aktivierung/Aufgabenqualität</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
         </div>
-
-        <div class="row slider-row">
-          <div class="label">Teilnahme, Mitgestaltung und Verantwortung</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Reaktiv an vorgegebenen Aufgaben – eigene Ideen mit begrenzter Verantwortung – Lernende gestalten aktiv mit und übernehmen Verantwortung.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen - Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen - Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens
-            </div>
-          </details>
+        <div class="desc">
+          Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten – Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg – Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen
         </div>
-
-        <div class="row slider-row">
-          <div class="label">Resonanz, Anerkennung und Wirksamkeit</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten - Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg - Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen
           </div>
-
-          <div class="desc">
-            Bewertende Rückmeldungen – Rückmeldungen zum Lernstand und Anerkennung – Beiträge finden Resonanz und wirken im Lernprozess fort.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft - Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung - Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort
-            </div>
-          </details>
-        </div>
+        </details>
       </div>
 
-      <!-- LERNEN SICHTBAR MACHEN -->
-      <div class="card">
-        <h3>Lernen sichtbar machen (Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</h3>
-
-        <div class="row slider-row">
-          <div class="label">Transparenz von Qualität und Beurteilungskriterien</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Kriterien liegen bei der Lehrkraft – Kriterien werden offengelegt – Kriterien werden gemeinsam entwickelt und für Selbst-/Peer-/Prozessbeurteilung genutzt.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle - Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären - Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung
-            </div>
-          </details>
+      <div class="cell slider-row">
+        <div class="label">Bedeutsamkeit und Sinn des Lerngegenstandes</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
         </div>
-
-        <div class="row slider-row">
-          <div class="label">Reflexion von Lernprozessen und Lernentwicklung</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
-          </div>
-
-          <div class="desc">
-            Sichtbar vor allem Ergebnisse – angeleiteter Rückblick auf Lernen – bewusste Reflexion von Strategien, Herausforderungen und Schlussfolgerungen.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet - Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen - Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse
-            </div>
-          </details>
+        <div class="desc">
+          Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt - Lerngegenstände werden in ihren Zielen erklärt und punktuell mit Erfahrungen oder Interessen der Lernenden verknüpft - Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt
         </div>
-
-        <div class="row slider-row">
-          <div class="label">Wirkung und Anschlussfähigkeit in der Schulgemeinde</div>
-          <input class="slider" type="range" min="0" max="2" step="1" value="0">
-          <div class="dots" aria-hidden="true">
-            <span class="dot" data-dot="0"></span>
-            <span class="dot" data-dot="1"></span>
-            <span class="dot" data-dot="2"></span>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt - Lerngegenstände werden in ihren Zielen erklärt und punktuell mit Erfahrungen oder Interessen der Lernenden verknüpft - Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt
           </div>
+        </details>
+      </div>
 
-          <div class="desc">
-            Bedeutung vor allem für Einzelne/Lerngruppe – über die Lerngruppe hinaus sichtbar – wird in der Schulgemeinde aufgegriffen und weiterentwickelt.
-          </div>
-
-          <details>
-            <summary>Details anzeigen</summary>
-            <div class="more">
-              Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst und die Lerngruppe - Lernergebnisse werden über die Lerngruppe hinaus sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz - Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.
-            </div>
-          </details>
+      <div class="cell slider-row">
+        <div class="label">Transparenz von Qualität und Beurteilungskriterien</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
         </div>
+        <div class="desc">
+          Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle - Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären - Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle - Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären - Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ZEILE 2: 1.2 / 2.2 / 3.2 -->
+    <div class="rowgrid">
+      <div class="cell slider-row">
+        <div class="label">Aktive Prozessbeteiligung</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+        </div>
+        <div class="desc">
+          Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen - Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens - Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen - Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens - Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.
+          </div>
+        </details>
+      </div>
+
+      <div class="cell slider-row">
+        <div class="label">Teilnahme, Mitgestaltung und Verantwortung</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+        </div>
+        <div class="desc">
+          Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen - Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen - Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen - Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen - Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens
+          </div>
+        </details>
+      </div>
+
+      <div class="cell slider-row">
+        <div class="label">Reflexion von Lernprozessen und Lernentwicklung</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+        </div>
+        <div class="desc">
+          Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet - Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen - Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet - Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen - Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ZEILE 3: 1.3 / 2.3 / 3.3 -->
+    <div class="rowgrid">
+      <div class="cell slider-row">
+        <div class="label">Selbstwirksamkeit</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+        </div>
+        <div class="desc">
+          Lernen wir v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt - Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten - Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Lernen wir v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt - Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten - Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.
+          </div>
+        </details>
+      </div>
+
+      <div class="cell slider-row">
+        <div class="label">Resonanz, Anerkennung und Wirksamkeit</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+        </div>
+        <div class="desc">
+          Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft - Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung - Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft - Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung - Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort
+          </div>
+        </details>
+      </div>
+
+      <div class="cell slider-row">
+        <div class="label">Wirkung und Anschlussfähigkeit in der Schulgemeinde</div>
+        <input class="slider" type="range" min="0" max="2" step="1" value="0">
+        <div class="dots" aria-hidden="true">
+          <span class="dot" data-dot="0"></span>
+          <span class="dot" data-dot="1"></span>
+          <span class="dot" data-dot="2"></span>
+        </div>
+        <div class="desc">
+          Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst und die Lerngruppe - Lernergebnisse werden über die Lerngruppe hinaus sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz - Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.
+        </div>
+        <details>
+          <summary>Wortlaut anzeigen</summary>
+          <div class="more">
+            Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst und die Lerngruppe - Lernergebnisse werden über die Lerngruppe hinaus sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz - Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.
+          </div>
+        </details>
       </div>
     </div>
 
