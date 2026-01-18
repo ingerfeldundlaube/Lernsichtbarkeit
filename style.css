@@ -93,3 +93,27 @@ input[type="range"]{
   width:100%;
   accent-color: var(--accent);
 }
+details{ width:100%; }
+summary{
+  list-style:none;
+  cursor:pointer;
+  user-select:none;
+}
+summary::-webkit-details-marker{ display:none; }
+
+.more{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.25;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background: rgba(0,0,0,.08);
+}
+
+.hint{
+  font-size:.85rem;
+  color: var(--muted);
+  opacity:.9;
+}
