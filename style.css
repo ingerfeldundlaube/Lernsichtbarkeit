@@ -1,11 +1,11 @@
 :root{
-  --bg:#0f4c5c;        /* Hintergrund */
-  --panel:#1b6a75;     /* Karten */
-  --panel2:#155b66;    /* dunklere Karten/Flächen */
-  --text:#eaf6f6;      /* Schrift hell */
-  --muted:#cfe8e8;     /* Sekundärtext */
-  --accent:#f4a261;    /* Akzent (Buttons/Highlights) */
-  --danger:#d64545;    /* Reset-Button */
+  --bg:#0f4c5c;
+  --panel:#1b6a75;
+  --panel2:#155b66;
+  --text:#eaf6f6;
+  --muted:#cfe8e8;
+  --accent:#f4a261;
+  --danger:#d64545;
   --line:rgba(255,255,255,.18);
 }
 
@@ -19,7 +19,7 @@ body{
 }
 
 .container{
-  max-width:1100px;
+  max-width:1200px;
   margin:0 auto;
   padding:28px 18px 90px;
 }
@@ -52,13 +52,42 @@ h2{
   margin:18px 0 18px;
 }
 
-.grid{
+/* ---------- 3 Spalten-Layout, zeilenweise ---------- */
+
+.headers{
   display:grid;
-  gap:14px;
   grid-template-columns:repeat(12,1fr);
+  gap:14px;
+  margin-bottom:14px;
 }
 
-.card{
+.hcard{
+  grid-column:span 12;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+}
+
+@media (min-width:900px){
+  .hcard{ grid-column:span 4; }
+}
+
+.hcard h3{
+  margin:0;
+  font-size:1rem;
+  line-height:1.25;
+}
+
+/* Jede Zeile ist ein eigener 3-Spalten-Grid: so startet alles exakt auf einer Höhe */
+.rowgrid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.cell{
   grid-column:span 12;
   background:var(--panel);
   border:1px solid var(--line);
@@ -66,15 +95,87 @@ h2{
   padding:14px 14px 12px;
 }
 
-@media (min-width:800px){
-  .card{grid-column:span 4;}
+@media (min-width:900px){
+  .cell{ grid-column:span 4; }
 }
 
-.card h3{
-  margin:0 0 10px;
-  font-size:1rem;
+/* Inhalt in einer Zelle */
+.label{
+  font-weight:800;
+  color:var(--text);
+  margin-bottom:10px;
+  line-height:1.25;
 }
 
+/* Slider */
+input[type="range"]{
+  width:100%;
+  accent-color: var(--accent);
+}
+
+/* 3 Punkte unter dem Slider */
+.dots{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:6px;
+  padding:0 2px;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.45);
+  opacity:.8;
+}
+
+.dot.active{
+  background: var(--accent);
+  border-color: transparent;
+  opacity:1;
+}
+
+/* Kurznotiz (immer sichtbar) */
+.desc{
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.25;
+
+  /* damit die Zellhöhe stabil bleibt */
+  display:-webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+
+/* Aufklappbarer Wortlaut */
+details{ width:100%; margin-top:8px; }
+
+summary{
+  list-style:none;
+  cursor:pointer;
+  user-select:none;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.25;
+  opacity:.95;
+}
+summary::-webkit-details-marker{ display:none; }
+
+.more{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.25;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background: rgba(0,0,0,.08);
+}
+
+/* Buttons */
 .btnrow{
   display:flex;
   gap:10px;
@@ -89,7 +190,7 @@ h2{
   color:var(--text);
   padding:10px 14px;
   border-radius:12px;
-  font-weight:700;
+  font-weight:800;
   font-size:.95rem;
 }
 
@@ -102,78 +203,6 @@ h2{
 .btn-danger{
   background:var(--danger);
   border-color:transparent;
-}
-
-/* Zeilenstruktur pro Unterpunkt (fixe Höhe für gleiche Startlinien) */
-.row{
-  min-height: 150px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  gap:6px;
-  padding:10px 0;
-  border-top:1px solid var(--line);
-}
-
-.row:first-of-type{ border-top: none; }
-
-.label{
-  font-weight:700;
-  color:var(--text);
-}
-
-/* Slider */
-input[type="range"]{
-  width:100%;
-  accent-color: var(--accent);
-}
-
-/* 3-Punkt-Skala unter dem Slider */
-.scale{
-  display:flex;
-  justify-content:space-between;
-  font-size:.82rem;
-  color: var(--muted);
-  margin-top:4px;
-}
-
-/* Kurztext + aufklappbare Details */
-details{ width:100%; }
-
-summary{
-  list-style:none;
-  cursor:pointer;
-  user-select:none;
-}
-
-summary::-webkit-details-marker{ display:none; }
-
-.desc{
-  color:var(--muted);
-  font-size:.92rem;
-  line-height:1.25;
-
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.more{
-  margin-top:8px;
-  color:var(--muted);
-  font-size:.92rem;
-  line-height:1.25;
-  padding:10px 12px;
-  border:1px solid var(--line);
-  border-radius:12px;
-  background: rgba(0,0,0,.08);
-}
-
-.hint{
-  font-size:.85rem;
-  color: var(--muted);
-  opacity:.9;
 }
 
 /* Footer */
@@ -193,11 +222,10 @@ summary::-webkit-details-marker{ display:none; }
   color:var(--text);
   text-decoration:none;
 }
-
 .footer a:hover{ text-decoration:underline; }
 
 .footer .inner{
-  max-width:1100px;
+  max-width:1200px;
   margin:0 auto;
   display:flex;
   gap:10px;
