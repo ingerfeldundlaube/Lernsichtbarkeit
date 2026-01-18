@@ -61,7 +61,6 @@
       margin:18px 0 18px;
     }
 
-    /* 3 Spalten */
     .rowgrid,
     .catgrid{
       display:grid;
@@ -76,7 +75,6 @@
       .catgrid{ grid-template-columns:repeat(3, 1fr); }
     }
 
-    /* Hauptkategorien als Überschriftenzeile */
     .cathead{
       padding:8px 6px 10px;
       border-bottom:2px solid rgba(255,255,255,.22);
@@ -96,7 +94,6 @@
       line-height:1.25;
     }
 
-    /* Kacheln kompakter */
     .box{
       background:var(--panel);
       border:1px solid var(--line);
@@ -104,7 +101,6 @@
       padding:12px 12px 10px;
     }
 
-    /* Einheitliche Bereiche -> sorgt für gleiche Linie */
     .tile{
       display:flex;
       flex-direction:column;
@@ -112,7 +108,7 @@
     }
 
     .tilehead{
-      min-height: 44px;   /* einheitliche Titelhöhe */
+      min-height: 44px;
       display:flex;
       align-items:flex-start;
     }
@@ -126,7 +122,7 @@
     }
 
     .sliderwrap{
-      min-height: 58px;   /* Slider + 1-2-3 immer gleich hoch */
+      min-height: 58px;
       display:flex;
       flex-direction:column;
       gap:8px;
@@ -166,7 +162,7 @@
     }
 
     .short{
-      min-height: 172px;  /* Kurznotizblock überall gleich hoch -> "Wortlaut anzeigen" auf Linie */
+      min-height: 172px;
       display:grid;
       gap:8px;
     }
@@ -203,7 +199,6 @@
       line-height:1.25;
     }
 
-    /* Details weiter oben, aber auf einer Linie, weil .short gleiche Höhe hat */
     details{
       width:100%;
       border-top:1px solid var(--line);
@@ -267,6 +262,13 @@
       color:#1f2328;
     }
 
+    /* Formatspinne */
+    #spider{
+      background: rgba(0,0,0,.06);
+      border:1px solid var(--line);
+      border-radius:14px;
+    }
+
     .footer{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -298,7 +300,6 @@
 
     <div class="rule"></div>
 
-    <!-- Hauptkategorien als Überschriftenzeile -->
     <div class="catgrid">
       <div class="cathead">
         <p class="title">Lernen aktivieren</p>
@@ -314,13 +315,17 @@
       </div>
     </div>
 
+    <!-- Formatspinne -->
+    <div class="box" style="margin: 6px 0 18px;">
+      <p class="label" style="margin-bottom:10px;">Formatspinne</p>
+      <canvas id="spider" width="900" height="520" style="width:100%; height:auto;"></canvas>
+    </div>
+
     <!-- ZEILE 1 -->
     <div class="rowgrid">
-      <!-- 1.1 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">1.1 Kognitive Aktivierung/Aufgabenqualität</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -329,13 +334,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Bekannte Aufgabenformate nach Schema-F bearbeiten</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Vorwissen aktivieren & bedeutsame Probleme lösen</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Strategien transferieren & Vorgehen reflektieren</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -349,11 +352,9 @@
         </div>
       </div>
 
-      <!-- 2.1 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">2.1 Bedeutsamkeit & Sinn des Lerngegenstandes</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -362,13 +363,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Pflichtaufgaben</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Transparente Ziele & erste Anknüpfungspunkte</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Knüpft an Lebenswelt an & ist bedeutsam</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -382,11 +381,9 @@
         </div>
       </div>
 
-      <!-- 3.1 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">3.1 Transparenz von Qualität & Beurteilungskriterien</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -395,13 +392,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Kriterien bei Lehrkraft</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Offengelegte Kriterien: Einschätzung abgleichen & Weiterarbeit planen</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Kriterien gemeinsam entwickeln & nutzen</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -418,11 +413,9 @@
 
     <!-- ZEILE 2 -->
     <div class="rowgrid">
-      <!-- 1.2 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">1.2 Aktive Prozessbeteiligung</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -431,13 +424,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Vorgehen vorgegeben</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Wahlmöglichkeiten im Rahmen</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Gemeinsam planen & abstimmen</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -451,11 +442,9 @@
         </div>
       </div>
 
-      <!-- 2.2 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">2.2 Teilnahme, Mitgestaltung & Verantwortung</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -464,13 +453,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Reaktiv beteiligt</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Ideen einbringen & Verantwortung übernehmen</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Lernprozesse aktiv mitgestalten</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -484,11 +471,9 @@
         </div>
       </div>
 
-      <!-- 3.2 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">3.2 Reflexion von Lernprozessen & Lernentwicklung</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -497,13 +482,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Ergebnisse im Fokus</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Lernen beschreiben & einordnen</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Lernwege reflektieren & Schlussfolgerungen nutzen</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -520,11 +503,9 @@
 
     <!-- ZEILE 3 -->
     <div class="rowgrid">
-      <!-- 1.3 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">1.3 Selbstwirksamkeit</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -533,13 +514,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Pflichterfüllung</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Fortschritte erleben & Zutrauen gewinnen</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Erfolge reflektieren & nutzen</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -553,11 +532,9 @@
         </div>
       </div>
 
-      <!-- 2.3 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">2.3 Resonanz, Anerkennung & Wirksamkeit</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -566,13 +543,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Notenorientiert & lehrkraftzentriert</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">Lernstand klären & Anerkennung geben</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">Resonanz erfahren & fortwirken</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -586,11 +561,9 @@
         </div>
       </div>
 
-      <!-- 3.3 -->
       <div class="box slider-row">
         <div class="tile">
           <div class="tilehead"><p class="label">3.3 Wirkung & Anschlussfähigkeit in der Schulgemeinde</p></div>
-
           <div class="sliderwrap">
             <input class="slider" type="range" min="0" max="2" step="1" value="0">
             <div class="scale" aria-hidden="true">
@@ -599,13 +572,11 @@
               <span class="chip" data-chip="2">3</span>
             </div>
           </div>
-
           <div class="short">
             <div class="sitem"><div class="stag">1</div><div class="stext">Bedeutung für Einzelne</div></div>
             <div class="sitem"><div class="stag">2</div><div class="stext">In Lerngruppe sichtbar</div></div>
             <div class="sitem"><div class="stag">3</div><div class="stext">In Schulgemeinde aufgreifen & weiterentwickeln</div></div>
           </div>
-
           <details>
             <summary>Wortlaut anzeigen</summary>
             <div class="more">
@@ -638,6 +609,18 @@
   </div>
 
   <script>
+    const AXES = [
+      { key: "1.1", label: "1.1" },
+      { key: "1.2", label: "1.2" },
+      { key: "1.3", label: "1.3" },
+      { key: "2.1", label: "2.1" },
+      { key: "2.2", label: "2.2" },
+      { key: "2.3", label: "2.3" },
+      { key: "3.1", label: "3.1" },
+      { key: "3.2", label: "3.2" },
+      { key: "3.3", label: "3.3" },
+    ];
+
     function updateChips(row){
       const slider = row.querySelector('.slider');
       const chips = row.querySelectorAll('.chip');
@@ -645,9 +628,126 @@
       chips.forEach((c,i)=> c.classList.toggle('active', i===v));
     }
 
+    function getValues(){
+      const rows = Array.from(document.querySelectorAll('.slider-row'));
+      const domMap = {
+        "1.1": 0,
+        "2.1": 1,
+        "3.1": 2,
+        "1.2": 3,
+        "2.2": 4,
+        "3.2": 5,
+        "1.3": 6,
+        "2.3": 7,
+        "3.3": 8
+      };
+
+      const valsByKey = {};
+      Object.keys(domMap).forEach(k => {
+        const row = rows[domMap[k]];
+        valsByKey[k] = row ? Number(row.querySelector('.slider').value) : 0;
+      });
+
+      return AXES.map(a => valsByKey[a.key] ?? 0);
+    }
+
+    function drawSpider(){
+      const canvas = document.getElementById('spider');
+      if(!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width;
+      const H = canvas.height;
+
+      ctx.clearRect(0,0,W,H);
+
+      const values = getValues();
+      const maxV = 2;
+
+      const cx = W/2;
+      const cy = H/2 + 10;
+      const radius = Math.min(W, H) * 0.33;
+
+      const lineCol = "rgba(255,255,255,.22)";
+      const textCol = "rgba(234,246,246,.92)";
+      const fillCol = "rgba(244,162,97,.22)";
+      const strokeCol = "rgba(244,162,97,.95)";
+
+      ctx.lineWidth = 1;
+      for(let r=1; r<=maxV; r++){
+        const rr = radius * (r/maxV);
+        ctx.beginPath();
+        for(let i=0; i<AXES.length; i++){
+          const ang = (-Math.PI/2) + (i * 2*Math.PI/AXES.length);
+          const x = cx + rr * Math.cos(ang);
+          const y = cy + rr * Math.sin(ang);
+          if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.closePath();
+        ctx.strokeStyle = lineCol;
+        ctx.stroke();
+      }
+
+      for(let i=0; i<AXES.length; i++){
+        const ang = (-Math.PI/2) + (i * 2*Math.PI/AXES.length);
+        const x = cx + radius * Math.cos(ang);
+        const y = cy + radius * Math.sin(ang);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = lineCol;
+        ctx.stroke();
+
+        const lx = cx + (radius + 34) * Math.cos(ang);
+        const ly = cy + (radius + 34) * Math.sin(ang);
+        ctx.fillStyle = textCol;
+        ctx.font = "700 18px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+        ctx.textAlign = (Math.cos(ang) > 0.2) ? "left" : (Math.cos(ang) < -0.2 ? "right" : "center");
+        ctx.textBaseline = (Math.sin(ang) > 0.2) ? "top" : (Math.sin(ang) < -0.2 ? "bottom" : "middle");
+        ctx.fillText(AXES[i].label, lx, ly);
+      }
+
+      ctx.beginPath();
+      for(let i=0; i<values.length; i++){
+        const v = values[i];
+        const rr = radius * (v/maxV);
+        const ang = (-Math.PI/2) + (i * 2*Math.PI/AXES.length);
+        const x = cx + rr * Math.cos(ang);
+        const y = cy + rr * Math.sin(ang);
+        if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = fillCol;
+      ctx.fill();
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = strokeCol;
+      ctx.stroke();
+
+      for(let i=0; i<values.length; i++){
+        const v = values[i];
+        const rr = radius * (v/maxV);
+        const ang = (-Math.PI/2) + (i * 2*Math.PI/AXES.length);
+        const x = cx + rr * Math.cos(ang);
+        const y = cy + rr * Math.sin(ang);
+        ctx.beginPath();
+        ctx.arc(x,y,6,0,2*Math.PI);
+        ctx.fillStyle = strokeCol;
+        ctx.fill();
+      }
+
+      ctx.fillStyle = "rgba(207,232,232,.95)";
+      ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "alphabetic";
+      ctx.fillText("0–2 (Reglerstellung)", 16, H-18);
+    }
+
     document.querySelectorAll('.slider-row').forEach(row => {
       const slider = row.querySelector('.slider');
-      slider.addEventListener('input', () => updateChips(row));
+      slider.addEventListener('input', () => {
+        updateChips(row);
+        drawSpider();
+      });
       updateChips(row);
     });
 
@@ -657,7 +757,10 @@
         slider.value = 0;
         slider.dispatchEvent(new Event('input', { bubbles: true }));
       });
+      drawSpider();
     });
+
+    drawSpider();
   </script>
 </body>
 </html>
