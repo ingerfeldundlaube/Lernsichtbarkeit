@@ -61,7 +61,6 @@
       margin:18px 0 18px;
     }
 
-    .rowgrid,
     .catgrid{
       display:grid;
       grid-template-columns:1fr;
@@ -71,7 +70,6 @@
     }
 
     @media (min-width: 900px){
-      .rowgrid{ grid-template-columns:repeat(3, 1fr); }
       .catgrid{ grid-template-columns:repeat(3, 1fr); }
     }
 
@@ -92,6 +90,21 @@
       font-size:.95rem;
       font-weight:650;
       line-height:1.25;
+    }
+
+    /* Handy-Reihenfolge korrekt: 3 Spalten-Blöcke, die am Handy untereinander laufen */
+    .colgrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media (min-width: 900px){
+      .colgrid{ grid-template-columns:repeat(3, 1fr); }
+    }
+    .col{
+      display:grid;
+      gap:14px;
+      align-content:start;
     }
 
     .box{
@@ -201,13 +214,13 @@
       line-height:1.25;
     }
 
+    /* Wortlaut (Details) – klappt auch mobil */
     details{
       width:100%;
       border-top:1px solid var(--line);
       padding-top:10px;
       margin-top:0;
     }
-
     summary{
       list-style:none;
       cursor:pointer;
@@ -218,7 +231,6 @@
       opacity:.95;
     }
     summary::-webkit-details-marker{ display:none; }
-
     .more{
       margin-top:10px;
       padding:12px 12px;
@@ -226,7 +238,6 @@
       border-radius:14px;
       background: rgba(0,0,0,.10);
     }
-
     .stages{
       margin:0;
       padding-left:18px;
@@ -318,181 +329,284 @@
       </div>
     </div>
 
-    <!-- ZEILE 1 -->
-    <div class="rowgrid">
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">1.1 Kognitive Aktivierung/Aufgabenqualität</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
+    <!-- 1) 3 Spalten, die auf dem Handy untereinander laufen: 1.1/1.2/1.3 usw. -->
+    <div class="colgrid">
+
+      <!-- Spalte 1: 1.x -->
+      <div class="col">
+        <!-- 1.1 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">1.1 Kognitive Aktivierung/Aufgabenqualität</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
             </div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Bekannte Aufgabenformate nach Schema-F bearbeiten</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Vorwissen aktivieren & bedeutsame Probleme lösen</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Strategien transferieren & Vorgehen reflektieren</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten.</li>
+                  <li><b>Stufe 2:</b> Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg.</li>
+                  <li><b>Stufe 3:</b> Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen.</li>
+                </ul>
+              </div>
+            </details>
           </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Bekannte Aufgabenformate nach Schema-F bearbeiten</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Vorwissen aktivieren & bedeutsame Probleme lösen</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Strategien transferieren & Vorgehen reflektieren</div></div>
+        </div>
+
+        <!-- 1.2 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">1.2 Aktive Prozessbeteiligung</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
+            </div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Vorgehen vorgegeben</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Wahlmöglichkeiten im Rahmen</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Gemeinsam planen & abstimmen</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen.</li>
+                  <li><b>Stufe 2:</b> Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens.</li>
+                  <li><b>Stufe 3:</b> Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 1.3 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">1.3 Selbstwirksamkeit</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
+            </div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Pflichterfüllung</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Fortschritte erleben & Zutrauen gewinnen</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Erfolge reflektieren & nutzen</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Lernen wird v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt.</li>
+                  <li><b>Stufe 2:</b> Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten.</li>
+                  <li><b>Stufe 3:</b> Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
       </div>
 
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">2.1 Bedeutsamkeit & Sinn des Lerngegenstandes</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
+      <!-- Spalte 2: 2.x -->
+      <div class="col">
+        <!-- 2.1 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">2.1 Bedeutsamkeit & Sinn des Lerngegenstandes</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
             </div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Pflichtaufgaben</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Transparente Ziele & erste Anknüpfungspunkte</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Knüpft an Lebenswelt an & ist bedeutsam</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt.</li>
+                  <li><b>Stufe 2:</b> Lerngegenstände werden in ihren Zielen transparent gemacht & mit ersten Anknüpfungspunkten zu Erfahrungen oder Interessen der Lernenden verknüpft.</li>
+                  <li><b>Stufe 3:</b> Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt.</li>
+                </ul>
+              </div>
+            </details>
           </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Pflichtaufgaben</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Transparente Ziele & erste Anknüpfungspunkte</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Knüpft an Lebenswelt an & ist bedeutsam</div></div>
+        </div>
+
+        <!-- 2.2 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">2.2 Teilnahme, Mitgestaltung & Verantwortung</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
+            </div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Reaktiv beteiligt</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Ideen einbringen & Verantwortung übernehmen</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Lernprozesse aktiv mitgestalten</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen.</li>
+                  <li><b>Stufe 2:</b> Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen.</li>
+                  <li><b>Stufe 3:</b> Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- 2.3 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">2.3 Resonanz, Anerkennung & Wirksamkeit</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
+            </div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Notenorientiert & lehrkraftzentriert</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Lernstand klären & Anerkennung geben</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Resonanz erfahren & fortwirken</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft.</li>
+                  <li><b>Stufe 2:</b> Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung.</li>
+                  <li><b>Stufe 3:</b> Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
       </div>
 
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">3.1 Transparenz von Qualität & Beurteilungskriterien</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
+      <!-- Spalte 3: 3.x -->
+      <div class="col">
+        <!-- 3.1 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">3.1 Transparenz von Qualität & Beurteilungskriterien</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
             </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Kriterien bei Lehrkraft</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Offengelegte Kriterien: Einschätzung abgleichen & Weiterarbeit planen</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Kriterien gemeinsam entwickeln & nutzen</div></div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Kriterien bei Lehrkraft</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Offengelegte Kriterien: Einschätzung abgleichen & Weiterarbeit planen</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Kriterien gemeinsam entwickeln & nutzen</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle.</li>
+                  <li><b>Stufe 2:</b> Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären.</li>
+                  <li><b>Stufe 3:</b> Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- ZEILE 2 -->
-    <div class="rowgrid">
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">1.2 Aktive Prozessbeteiligung</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
+        <!-- 3.2 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">3.2 Reflexion von Lernprozessen & Lernentwicklung</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
             </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Vorgehen vorgegeben</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Wahlmöglichkeiten im Rahmen</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Gemeinsam planen & abstimmen</div></div>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Ergebnisse im Fokus</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">Lernen beschreiben & einordnen</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">Lernwege reflektieren & Schlussfolgerungen nutzen</div></div>
+            </div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet.</li>
+                  <li><b>Stufe 2:</b> Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen.</li>
+                  <li><b>Stufe 3:</b> Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
-      </div>
 
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">2.2 Teilnahme, Mitgestaltung & Verantwortung</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
+        <!-- 3.3 -->
+        <div class="box slider-row">
+          <div class="tile">
+            <div class="tilehead"><p class="label">3.3 Wirkung & Anschlussfähigkeit in der Schulgemeinde</p></div>
+            <div class="sliderwrap">
+              <input class="slider" type="range" min="0" max="2" step="1" value="0">
+              <div class="scale" aria-hidden="true">
+                <span class="chip" data-chip="0">1</span>
+                <span class="chip" data-chip="1">2</span>
+                <span class="chip" data-chip="2">3</span>
+              </div>
             </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Reaktiv beteiligt</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Ideen einbringen & Verantwortung übernehmen</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Lernprozesse aktiv mitgestalten</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">3.2 Reflexion von Lernprozessen & Lernentwicklung</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
+            <div class="short">
+              <div class="sitem"><div class="stag">1</div><div class="stext">Bedeutung für Einzelne</div></div>
+              <div class="sitem"><div class="stag">2</div><div class="stext">In Lerngruppe sichtbar</div></div>
+              <div class="sitem"><div class="stag">3</div><div class="stext">In Schulgemeinde aufgreifen & weiterentwickeln</div></div>
             </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Ergebnisse im Fokus</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Lernen beschreiben & einordnen</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Lernwege reflektieren & Schlussfolgerungen nutzen</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ZEILE 3 -->
-    <div class="rowgrid">
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">1.3 Selbstwirksamkeit</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
-            </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Pflichterfüllung</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Fortschritte erleben & Zutrauen gewinnen</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Erfolge reflektieren & nutzen</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">2.3 Resonanz, Anerkennung & Wirksamkeit</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
-            </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Notenorientiert & lehrkraftzentriert</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">Lernstand klären & Anerkennung geben</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">Resonanz erfahren & fortwirken</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="box slider-row">
-        <div class="tile">
-          <div class="tilehead"><p class="label">3.3 Wirkung & Anschlussfähigkeit in der Schulgemeinde</p></div>
-          <div class="sliderwrap">
-            <input class="slider" type="range" min="0" max="2" step="1" value="0">
-            <div class="scale" aria-hidden="true">
-              <span class="chip" data-chip="0">1</span>
-              <span class="chip" data-chip="1">2</span>
-              <span class="chip" data-chip="2">3</span>
-            </div>
-          </div>
-          <div class="short">
-            <div class="sitem"><div class="stag">1</div><div class="stext">Bedeutung für Einzelne</div></div>
-            <div class="sitem"><div class="stag">2</div><div class="stext">In Lerngruppe sichtbar</div></div>
-            <div class="sitem"><div class="stag">3</div><div class="stext">In Schulgemeinde aufgreifen & weiterentwickeln</div></div>
+            <details>
+              <summary>Wortlaut anzeigen</summary>
+              <div class="more">
+                <ul class="stages">
+                  <li><b>Stufe 1:</b> Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst.</li>
+                  <li><b>Stufe 2:</b> Lernergebnisse werden in der Lerngruppe sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz.</li>
+                  <li><b>Stufe 3:</b> Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         </div>
       </div>
@@ -543,10 +657,11 @@
 
     function getValues(){
       const rows = Array.from(document.querySelectorAll('.slider-row'));
+      // Reihenfolge jetzt: 1.1,1.2,1.3,2.1,2.2,2.3,3.1,3.2,3.3
       const domMap = {
-        "1.1": 0, "2.1": 1, "3.1": 2,
-        "1.2": 3, "2.2": 4, "3.2": 5,
-        "1.3": 6, "2.3": 7, "3.3": 8
+        "1.1": 0, "1.2": 1, "1.3": 2,
+        "2.1": 3, "2.2": 4, "2.3": 5,
+        "3.1": 6, "3.2": 7, "3.3": 8
       };
 
       const valsByKey = {};
