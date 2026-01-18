@@ -42,8 +42,9 @@
 
     h1{
       margin:14px 0 6px;
-      font-size:clamp(1.6rem,2.5vw,2.2rem);
+      font-size:clamp(1.7rem,2.8vw,2.35rem);
       text-align:center;
+      letter-spacing:-0.01em;
     }
 
     h2{
@@ -60,15 +61,8 @@
       margin:18px 0 18px;
     }
 
-    /* 3 Spalten (Header) */
-    .headers{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-      margin-bottom:14px;
-    }
-
-    /* 3 Spalten pro Zeile */
+    /* 3 Spalten: Header + Zeilen */
+    .headers,
     .rowgrid{
       display:grid;
       grid-template-columns:1fr;
@@ -88,24 +82,42 @@
       padding:14px 14px 12px;
     }
 
-    .box h3{
+    .hbox{
+      padding:16px 14px;
+    }
+
+    .cat{
       margin:0;
-      font-size:1rem;
+      font-size:1.05rem;
+      font-weight:900;
+      line-height:1.15;
+    }
+    .cat span{
+      font-weight:800;
+    }
+    .cat small{
+      display:block;
+      margin-top:6px;
+      font-size:.95rem;
+      font-weight:600;
+      color:var(--muted);
       line-height:1.25;
     }
 
     .label{
-      font-weight:800;
+      font-weight:900;
       color:var(--text);
       margin-bottom:10px;
       line-height:1.25;
     }
 
+    /* Slider */
     input[type="range"]{
       width:100%;
       accent-color: var(--accent);
     }
 
+    /* 3 Punkte */
     .dots{
       display:flex;
       justify-content:space-between;
@@ -126,37 +138,57 @@
       opacity:1;
     }
 
+    /* Kurznotiz: bewusst kurz, gleich hohe Ansicht */
     .desc{
       margin-top:10px;
       color:var(--muted);
       font-size:.92rem;
       line-height:1.25;
+
+      display:-webkit-box;
+      -webkit-line-clamp:2;      /* sehr kurz in der Hauptansicht */
+      -webkit-box-orient:vertical;
+      overflow:hidden;
     }
 
-    details{ width:100%; margin-top:8px; }
+    /* Aufklappen: sichtbar „im Layout“, nicht Fließtext */
+    details{
+      width:100%;
+      margin-top:10px;
+      border-top:1px solid var(--line);
+      padding-top:10px;
+    }
 
     summary{
       list-style:none;
       cursor:pointer;
       user-select:none;
-      color:var(--muted);
+      color:var(--text);
+      font-weight:800;
       font-size:.92rem;
-      line-height:1.25;
       opacity:.95;
     }
     summary::-webkit-details-marker{ display:none; }
 
     .more{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:1.25;
-      padding:10px 12px;
+      margin-top:10px;
+      padding:12px 12px;
       border:1px solid var(--line);
-      border-radius:12px;
-      background: rgba(0,0,0,.08);
+      border-radius:14px;
+      background: rgba(0,0,0,.10);
     }
 
+    .stages{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.3;
+    }
+    .stages li{ margin:6px 0; }
+    .stages b{ color:var(--text); }
+
+    /* Buttons */
     .btnrow{
       display:flex;
       gap:10px;
@@ -171,7 +203,7 @@
       color:var(--text);
       padding:10px 14px;
       border-radius:12px;
-      font-weight:800;
+      font-weight:900;
       font-size:.95rem;
     }
     .btn-danger{
@@ -184,6 +216,7 @@
       color:#1f2328;
     }
 
+    /* Footer */
     .footer{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -215,56 +248,77 @@
 
     <div class="rule"></div>
 
-    <!-- 3 Blöcke (nur Überschriften) -->
+    <!-- Kategorien (übersichtlich + hervorgehoben) -->
     <div class="headers">
-      <div class="box"><h3>Lernen aktivieren (was tun Lernende im Lernprozess)</h3></div>
-      <div class="box"><h3>Lernen motivieren (Warum bleiben Lernende dran und bringen sich ein?)</h3></div>
-      <div class="box"><h3>Lernen sichtbar machen (Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</h3></div>
+      <div class="box hbox">
+        <p class="cat"><span>Lernen aktivieren</span><small>(Was tun Lernende im Lernprozess?)</small></p>
+      </div>
+      <div class="box hbox">
+        <p class="cat"><span>Lernen motivieren</span><small>(Warum bleiben Lernende dran und bringen sich ein?)</small></p>
+      </div>
+      <div class="box hbox">
+        <p class="cat"><span>Lernen sichtbar machen</span><small>(Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</small></p>
+      </div>
     </div>
 
     <!-- ZEILE 1: 1.1 / 2.1 / 3.1 -->
     <div class="rowgrid">
+      <!-- 1.1 -->
       <div class="box slider-row">
-        <div class="label">Kognitive Aktivierung/Aufgabenqualität</div>
+        <div class="label">1.1 Kognitive Aktivierung/Aufgabenqualität</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten – Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg – Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen
-        </div>
+
+        <div class="desc">Bekannte Aufgabenformate nach Schema-F bearbeiten → Vorwissen aktivieren & bedeutsame Probleme lösen → Strategien transferieren & Vorgehen reflektieren</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten - Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg - Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten.</li>
+              <li><b>Stufe 2:</b> Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg.</li>
+              <li><b>Stufe 3:</b> Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen.</li>
+            </ul>
           </div>
         </details>
       </div>
 
+      <!-- 2.1 -->
       <div class="box slider-row">
-        <div class="label">Bedeutsamkeit und Sinn des Lerngegenstandes</div>
+        <div class="label">2.1 Bedeutsamkeit & Sinn des Lerngegenstandes</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt - Lerngegenstände werden in ihren Zielen erklärt und punktuell mit Erfahrungen oder Interessen der Lernenden verknüpft - Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt
-        </div>
+
+        <div class="desc">Pflichtaufgaben → Transparente Ziele & erste Anknüpfungspunkte → Knüpft an Lebenswelt an & ist bedeutsam</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt - Lerngegenstände werden in ihren Zielen erklärt und punktuell mit Erfahrungen oder Interessen der Lernenden verknüpft - Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt.</li>
+              <li><b>Stufe 2:</b> Lerngegenstände werden in ihren Zielen transparent gemacht & mit ersten Anknüpfungspunkten zu Erfahrungen oder Interessen der Lernenden verknüpft.</li>
+              <li><b>Stufe 3:</b> Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt.</li>
+            </ul>
           </div>
         </details>
       </div>
 
+      <!-- 3.1 -->
       <div class="box slider-row">
-        <div class="label">Transparenz von Qualität und Beurteilungskriterien</div>
+        <div class="label">3.1 Transparenz von Qualität & Beurteilungskriterien</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle - Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären - Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung
-        </div>
+
+        <div class="desc">Kriterien bei Lehrkraft → Offengelegte Kriterien: Einschätzung abgleichen & Weiterarbeit planen → Kriterien gemeinsam entwickeln & nutzen</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle - Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären - Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle.</li>
+              <li><b>Stufe 2:</b> Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären.</li>
+              <li><b>Stufe 3:</b> Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung.</li>
+            </ul>
           </div>
         </details>
       </div>
@@ -272,47 +326,62 @@
 
     <!-- ZEILE 2: 1.2 / 2.2 / 3.2 -->
     <div class="rowgrid">
+      <!-- 1.2 -->
       <div class="box slider-row">
-        <div class="label">Aktive Prozessbeteiligung</div>
+        <div class="label">1.2 Aktive Prozessbeteiligung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen - Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens - Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.
-        </div>
+
+        <div class="desc">Vorgehen vorgegeben → Wahlmöglichkeiten im Rahmen → Gemeinsam planen & abstimmen</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen - Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens - Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen.</li>
+              <li><b>Stufe 2:</b> Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens.</li>
+              <li><b>Stufe 3:</b> Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.</li>
+            </ul>
           </div>
         </details>
       </div>
 
+      <!-- 2.2 -->
       <div class="box slider-row">
-        <div class="label">Teilnahme, Mitgestaltung und Verantwortung</div>
+        <div class="label">2.2 Teilnahme, Mitgestaltung & Verantwortung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen - Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen - Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens
-        </div>
+
+        <div class="desc">Reaktiv beteiligt → Ideen einbringen & Verantwortung übernehmen → Lernprozesse aktiv mitgestalten</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen - Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen - Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen.</li>
+              <li><b>Stufe 2:</b> Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen.</li>
+              <li><b>Stufe 3:</b> Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens.</li>
+            </ul>
           </div>
         </details>
       </div>
 
+      <!-- 3.2 -->
       <div class="box slider-row">
-        <div class="label">Reflexion von Lernprozessen und Lernentwicklung</div>
+        <div class="label">3.2 Reflexion von Lernprozessen & Lernentwicklung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet - Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen - Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse
-        </div>
+
+        <div class="desc">Ergebnisse im Fokus → Lernen beschreiben & einordnen → Lernwege reflektieren & Schlussfolgerungen nutzen</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet - Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen - Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet.</li>
+              <li><b>Stufe 2:</b> Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen.</li>
+              <li><b>Stufe 3:</b> Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse.</li>
+            </ul>
           </div>
         </details>
       </div>
@@ -320,47 +389,62 @@
 
     <!-- ZEILE 3: 1.3 / 2.3 / 3.3 -->
     <div class="rowgrid">
+      <!-- 1.3 -->
       <div class="box slider-row">
-        <div class="label">Selbstwirksamkeit</div>
+        <div class="label">1.3 Selbstwirksamkeit</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Lernen wir v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt - Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten - Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.
-        </div>
+
+        <div class="desc">Pflichterfüllung → Fortschritte erleben & Zutrauen gewinnen → Erfolge reflektieren & nutzen</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Lernen wir v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt - Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten - Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Lernen wird v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt.</li>
+              <li><b>Stufe 2:</b> Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten.</li>
+              <li><b>Stufe 3:</b> Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.</li>
+            </ul>
           </div>
         </details>
       </div>
 
+      <!-- 2.3 -->
       <div class="box slider-row">
-        <div class="label">Resonanz, Anerkennung und Wirksamkeit</div>
+        <div class="label">2.3 Resonanz, Anerkennung & Wirksamkeit</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft - Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung - Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort
-        </div>
+
+        <div class="desc">Notenorientiert & lehrkraftzentriert → Lernstand klären & Anerkennung geben → Resonanz erfahren & fortwirken</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft - Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung - Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft.</li>
+              <li><b>Stufe 2:</b> Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung.</li>
+              <li><b>Stufe 3:</b> Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort.</li>
+            </ul>
           </div>
         </details>
       </div>
 
+      <!-- 3.3 -->
       <div class="box slider-row">
-        <div class="label">Wirkung und Anschlussfähigkeit in der Schulgemeinde</div>
+        <div class="label">3.3 Wirkung & Anschlussfähigkeit in der Schulgemeinde</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-        <div class="desc">
-          Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst und die Lerngruppe - Lernergebnisse werden über die Lerngruppe hinaus sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz - Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.
-        </div>
+
+        <div class="desc">Bedeutung für Einzelne → In Lerngruppe sichtbar → In Schulgemeinde aufgreifen & weiterentwickeln</div>
+
         <details>
           <summary>Wortlaut anzeigen</summary>
           <div class="more">
-            Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst und die Lerngruppe - Lernergebnisse werden über die Lerngruppe hinaus sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz - Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.
+            <ul class="stages">
+              <li><b>Stufe 1:</b> Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst.</li>
+              <li><b>Stufe 2:</b> Lernergebnisse werden in der Lerngruppe sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz.</li>
+              <li><b>Stufe 3:</b> Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.</li>
+            </ul>
           </div>
         </details>
       </div>
