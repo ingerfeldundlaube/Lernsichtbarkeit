@@ -99,5 +99,13 @@
       <a href="https://www.instagram.com/ingerfeldundlaube/" target="_blank" rel="noreferrer">@ingerfeldundlaube</a>
     </div>
   </div>
+<script>
+  const resetBtn = document.querySelector('.btn-danger');
+  const sliders = document.querySelectorAll('input[type="range"]');
+
+  resetBtn.addEventListener('click', () => {
+    sliders.forEach(s => s.value = 5);
+  });
+</script>
 </body>
 </html>
