@@ -61,6 +61,7 @@
       margin:18px 0 18px;
     }
 
+    /* catgrid bleibt auf iPad/Desktop sichtbar */
     .catgrid{
       display:grid;
       grid-template-columns:1fr;
@@ -68,7 +69,6 @@
       margin-bottom:14px;
       align-items:stretch;
     }
-
     @media (min-width: 900px){
       .catgrid{ grid-template-columns:repeat(3, 1fr); }
     }
@@ -92,7 +92,35 @@
       line-height:1.25;
     }
 
-    /* Handy-Reihenfolge korrekt: 3 Spalten-Blöcke, die am Handy untereinander laufen */
+    /* Handy: catgrid ausblenden, stattdessen Spalten-Titel */
+    @media (max-width: 899px){
+      .catgrid{ display:none; }
+      .coltitle{ display:block; }
+    }
+    @media (min-width: 900px){
+      .coltitle{ display:none; }
+    }
+
+    .coltitle{
+      padding:8px 6px 10px;
+      border-bottom:2px solid rgba(255,255,255,.22);
+    }
+    .coltitle .title{
+      margin:0;
+      font-size:1.15rem;
+      font-weight:950;
+      letter-spacing:-0.01em;
+      line-height:1.1;
+    }
+    .coltitle .sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:.95rem;
+      font-weight:650;
+      line-height:1.25;
+    }
+
+    /* 3 Spalten-Blöcke: auf Handy untereinander (1.x dann 2.x dann 3.x) */
     .colgrid{
       display:grid;
       grid-template-columns:1fr;
@@ -214,7 +242,7 @@
       line-height:1.25;
     }
 
-    /* Wortlaut (Details) – klappt auch mobil */
+    /* Wortlaut (Details) */
     details{
       width:100%;
       border-top:1px solid var(--line);
@@ -314,6 +342,7 @@
 
     <div class="rule"></div>
 
+    <!-- iPad/Desktop: 3 Hauptüberschriften als Grid -->
     <div class="catgrid">
       <div class="cathead">
         <p class="title">Lernen aktivieren</p>
@@ -329,11 +358,16 @@
       </div>
     </div>
 
-    <!-- 1) 3 Spalten, die auf dem Handy untereinander laufen: 1.1/1.2/1.3 usw. -->
+    <!-- Inhalte: auf Handy untereinander als 1.x, 2.x, 3.x; auf Desktop als 3 Spalten -->
     <div class="colgrid">
 
       <!-- Spalte 1: 1.x -->
       <div class="col">
+        <div class="coltitle">
+          <p class="title">Lernen aktivieren</p>
+          <p class="sub">(Was tun Lernende im Lernprozess?)</p>
+        </div>
+
         <!-- 1.1 -->
         <div class="box slider-row">
           <div class="tile">
@@ -427,6 +461,11 @@
 
       <!-- Spalte 2: 2.x -->
       <div class="col">
+        <div class="coltitle">
+          <p class="title">Lernen motivieren</p>
+          <p class="sub">(Warum bleiben Lernende dran und bringen sich ein?)</p>
+        </div>
+
         <!-- 2.1 -->
         <div class="box slider-row">
           <div class="tile">
@@ -520,6 +559,11 @@
 
       <!-- Spalte 3: 3.x -->
       <div class="col">
+        <div class="coltitle">
+          <p class="title">Lernen sichtbar machen</p>
+          <p class="sub">(Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</p>
+        </div>
+
         <!-- 3.1 -->
         <div class="box slider-row">
           <div class="tile">
