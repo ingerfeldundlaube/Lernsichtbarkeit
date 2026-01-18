@@ -4,8 +4,208 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lernsichtbarkeit</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root{
+      --bg:#0f4c5c;
+      --panel:#1b6a75;
+      --panel2:#155b66;
+      --text:#eaf6f6;
+      --muted:#cfe8e8;
+      --accent:#f4a261;
+      --danger:#d64545;
+      --line:rgba(255,255,255,.18);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:28px 18px 90px;
+    }
+
+    .topright{
+      display:flex;
+      justify-content:flex-end;
+      font-weight:600;
+      font-size:.95rem;
+      opacity:.9;
+    }
+
+    h1{
+      margin:14px 0 6px;
+      font-size:clamp(1.6rem,2.5vw,2.2rem);
+      text-align:center;
+    }
+
+    h2{
+      margin:0 0 18px;
+      font-size:1.05rem;
+      font-weight:600;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    .rule{
+      height:1px;
+      background:var(--line);
+      margin:18px 0 18px;
+    }
+
+    /* 3 Spalten (Header) */
+    .headers{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-bottom:14px;
+    }
+
+    /* 3 Spalten pro Zeile */
+    .rowgrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+      margin-bottom:14px;
+    }
+
+    @media (min-width: 900px){
+      .headers{ grid-template-columns:repeat(3, 1fr); }
+      .rowgrid{ grid-template-columns:repeat(3, 1fr); }
+    }
+
+    .box{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 14px 12px;
+    }
+
+    .box h3{
+      margin:0;
+      font-size:1rem;
+      line-height:1.25;
+    }
+
+    .label{
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:10px;
+      line-height:1.25;
+    }
+
+    input[type="range"]{
+      width:100%;
+      accent-color: var(--accent);
+    }
+
+    .dots{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:6px;
+      padding:0 2px;
+    }
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.45);
+      opacity:.8;
+    }
+    .dot.active{
+      background: var(--accent);
+      border-color: transparent;
+      opacity:1;
+    }
+
+    .desc{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.25;
+    }
+
+    details{ width:100%; margin-top:8px; }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      user-select:none;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.25;
+      opacity:.95;
+    }
+    summary::-webkit-details-marker{ display:none; }
+
+    .more{
+      margin-top:8px;
+      color:var(--muted);
+      font-size:.92rem;
+      line-height:1.25;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background: rgba(0,0,0,.08);
+    }
+
+    .btnrow{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      margin:16px 0 8px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:1px solid var(--line);
+      background:var(--panel2);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:.95rem;
+    }
+    .btn-danger{
+      background:var(--danger);
+      border-color:transparent;
+    }
+    .btn-accent{
+      background:var(--accent);
+      border-color:transparent;
+      color:#1f2328;
+    }
+
+    .footer{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      background:rgba(15,76,92,.92);
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      padding:10px 14px;
+      font-size:.95rem;
+    }
+    .footer a{ color:var(--text); text-decoration:none; }
+    .footer a:hover{ text-decoration:underline; }
+    .footer .inner{
+      max-width:1200px;
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
     <div class="topright">Catrin Ingerfeld-Bloemertz</div>
@@ -15,29 +215,19 @@
 
     <div class="rule"></div>
 
-    <!-- Überschriften: 3 Blöcke nebeneinander -->
+    <!-- 3 Blöcke (nur Überschriften) -->
     <div class="headers">
-      <div class="hcard">
-        <h3>Lernen aktivieren (was tun Lernende im Lernprozess)</h3>
-      </div>
-      <div class="hcard">
-        <h3>Lernen motivieren (Warum bleiben Lernende dran und bringen sich ein?)</h3>
-      </div>
-      <div class="hcard">
-        <h3>Lernen sichtbar machen (Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</h3>
-      </div>
+      <div class="box"><h3>Lernen aktivieren (was tun Lernende im Lernprozess)</h3></div>
+      <div class="box"><h3>Lernen motivieren (Warum bleiben Lernende dran und bringen sich ein?)</h3></div>
+      <div class="box"><h3>Lernen sichtbar machen (Wie wird Lernen sichtbar und kann anschlussfähig auch für die gemeinsame Weiterentwicklung sein?)</h3></div>
     </div>
 
     <!-- ZEILE 1: 1.1 / 2.1 / 3.1 -->
     <div class="rowgrid">
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Kognitive Aktivierung/Aufgabenqualität</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Lernende wenden vorgegebenes Wissen routiniert an, um bekannte Aufgabenformate zu bearbeiten – Lernende aktivieren Vorwissen, erklären Zusammenhänge und lösen bedeutsame Probleme mit offenem Lösungsweg – Lernende bearbeiten offene, anspruchsvolle Situationen ohne eindeutige Lösungen, transferieren Strategien und reflektieren ihr Vorgehen
         </div>
@@ -49,14 +239,10 @@
         </details>
       </div>
 
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Bedeutsamkeit und Sinn des Lerngegenstandes</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Lerngegenstände sind vorgegeben und werden überwiegend als schulische Pflichtaufgaben erlebt - Lerngegenstände werden in ihren Zielen erklärt und punktuell mit Erfahrungen oder Interessen der Lernenden verknüpft - Lerngegenstände knüpfen an Fragen, Erfahrungen oder aktuellen Themen der Lernenden an und werden als sinnvoll und bedeutsam erlebt
         </div>
@@ -68,14 +254,10 @@
         </details>
       </div>
 
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Transparenz von Qualität und Beurteilungskriterien</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Beurteilungskriterien liegen überwiegend bei der Lehrkraft, Lernende erhalten Rückmeldungen zu Ergebnissen, Selbstbeurteilung spielt kaum eine Rolle - Kriterien für Qualität werden erklärt und offengelegt, Lernende beziehen sich darauf, um eigenes Lernen zu begründen, Beiträge einzuordnen und nächste Lernschritte zu klären - Kriterien für Qualität werden gemeinsam entwickelt und ausgehandelt, Lernende nutzen sie aktiv zur Selbst-, Peer- und Prozessbeurteilung
         </div>
@@ -90,14 +272,10 @@
 
     <!-- ZEILE 2: 1.2 / 2.2 / 3.2 -->
     <div class="rowgrid">
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Aktive Prozessbeteiligung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Die Lehrkraft legt Vorgehen, Reihenfolge und Arbeitsschritte fest, Lernende folgen den Abläufen - Lernende wählen zwischen verschiedenen Vorgehensweisen und Strategien innerhalb eines gemeinsam gesetzten Rahmens - Lernende planen Arbeitsabläufe und Strategien mit, übernehmen Rollen und stimmen ihr Vorgehen im Lernprozess gemeinsam ab.
         </div>
@@ -109,14 +287,10 @@
         </details>
       </div>
 
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Teilnahme, Mitgestaltung und Verantwortung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Lernende beteiligen sich vor allem reaktiv an vorgegebenen Aufgaben und Entscheidungen - Lernende bringen eigene Ideen ein und übernehmen begrenzte Verantwortung innerhalb gesetzter Strukturen - Lernende gestalten Lernprozesse aktiv mit, übernehmen Verantwortung für gemeinsame Vorhaben und erleben ihr Handeln als bedeutsam für den Verlauf des Lernens
         </div>
@@ -128,14 +302,10 @@
         </details>
       </div>
 
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Reflexion von Lernprozessen und Lernentwicklung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Sichtbar werden vor allem Ergebnisse oder Endprodukte. Wie Lernen zustande kommt, bleibt weitgehend unbeachtet - Lernende blicken angeleitet auf ihr Lernen zurück, beschreiben Lernfortschritte und erste Vorgehensweisen und setzen diese in Beziehung zu den Lernzielen - Lernende reflektieren Lernwege, Strategien, Herausforderungen und Fortschritte bewusst, ziehen Schlussfolgerungen für ihr weiteres Lernen und nutzen diese für zukünftige Prozesse
         </div>
@@ -150,14 +320,10 @@
 
     <!-- ZEILE 3: 1.3 / 2.3 / 3.3 -->
     <div class="rowgrid">
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Selbstwirksamkeit</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Lernen wir v.a. als Pflichterfüllung erlebt, Erfolg wird von außen bestätigt - Lernende erleben erste Erfolge, erkennen eigene Fortschritte und gewinnen Vertrauen in die eigenen Fähigkeiten - Lernende erfahren sich als wirksam, reflektieren eigene Erfolge und machen diese für zukünftige Lernprozesse nutzbar.
         </div>
@@ -169,14 +335,10 @@
         </details>
       </div>
 
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Resonanz, Anerkennung und Wirksamkeit</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Rückmeldungen erfolgen überwiegend bewertend und individuell durch die Lehrkraft - Lernende erhalten Rückmeldungen zu ihrem Lernstand und erleben Anerkennung für Beiträge und Anstrengung - Beiträge der Lernenden finden Resonanz bei anderen, werden aufgegriffen und wirken im weiteren Lernprozess oder im gemeinsamen Produkt fort
         </div>
@@ -188,14 +350,10 @@
         </details>
       </div>
 
-      <div class="cell slider-row">
+      <div class="box slider-row">
         <div class="label">Wirkung und Anschlussfähigkeit in der Schulgemeinde</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
-        <div class="dots" aria-hidden="true">
-          <span class="dot" data-dot="0"></span>
-          <span class="dot" data-dot="1"></span>
-          <span class="dot" data-dot="2"></span>
-        </div>
+        <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
         <div class="desc">
           Lernergebnisse einzelner Lernender erhalten vor allem Bedeutung für sie selbst und die Lerngruppe - Lernergebnisse werden über die Lerngruppe hinaus sichtbar gemacht und erfahren Aufmerksamkeit, Rückmeldung und Resonanz - Lernergebnisse und Prozesse werden in der Schulgemeinde aufgegriffen, weitergeführt und weiterentwickelt und tragen zur gemeinsamen Gestaltung von Schul- und Unterrichtsentwicklung bei.
         </div>
@@ -209,7 +367,7 @@
     </div>
 
     <div class="btnrow">
-      <button class="btn btn-danger" type="button">Alle Regler zurücksetzen</button>
+      <button class="btn btn-danger" type="button" id="reset">Alle Regler zurücksetzen</button>
       <button class="btn btn-accent" type="button">Materialien herunterladen</button>
     </div>
   </div>
@@ -226,7 +384,7 @@
   </div>
 
   <script>
-    function updateDotsForRow(row){
+    function updateDots(row){
       const slider = row.querySelector('.slider');
       const dots = row.querySelectorAll('.dot');
       const v = Number(slider.value);
@@ -235,12 +393,11 @@
 
     document.querySelectorAll('.slider-row').forEach(row => {
       const slider = row.querySelector('.slider');
-      slider.addEventListener('input', () => updateDotsForRow(row));
-      updateDotsForRow(row);
+      slider.addEventListener('input', () => updateDots(row));
+      updateDots(row);
     });
 
-    const resetBtn = document.querySelector('.btn-danger');
-    resetBtn.addEventListener('click', () => {
+    document.getElementById('reset').addEventListener('click', () => {
       document.querySelectorAll('.slider-row').forEach(row => {
         const slider = row.querySelector('.slider');
         slider.value = 0;
