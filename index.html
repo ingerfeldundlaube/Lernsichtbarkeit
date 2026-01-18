@@ -101,11 +101,12 @@
   </div>
 <script>
   const resetBtn = document.querySelector('.btn-danger');
-  const sliders = document.querySelectorAll('input[type="range"]');
 
   resetBtn.addEventListener('click', () => {
-    sliders.forEach(s => s.value = 5);
+    document.querySelectorAll('input[type="range"]').forEach(s => {
+      s.value = 0;
+      s.dispatchEvent(new Event('input', { bubbles: true }));
+      s.dispatchEvent(new Event('change', { bubbles: true }));
+    });
   });
 </script>
-</body>
-</html>
