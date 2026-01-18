@@ -61,7 +61,6 @@
       margin:18px 0 18px;
     }
 
-    /* 3 Spalten: Header + Zeilen */
     .headers,
     .rowgrid{
       display:grid;
@@ -82,9 +81,7 @@
       padding:14px 14px 12px;
     }
 
-    .hbox{
-      padding:16px 14px;
-    }
+    .hbox{ padding:16px 14px; }
 
     .cat{
       margin:0;
@@ -92,9 +89,7 @@
       font-weight:900;
       line-height:1.15;
     }
-    .cat span{
-      font-weight:800;
-    }
+    .cat span{ font-weight:800; }
     .cat small{
       display:block;
       margin-top:6px;
@@ -111,13 +106,11 @@
       line-height:1.25;
     }
 
-    /* Slider */
     input[type="range"]{
       width:100%;
       accent-color: var(--accent);
     }
 
-    /* 3 Punkte */
     .dots{
       display:flex;
       justify-content:space-between;
@@ -138,23 +131,48 @@
       opacity:1;
     }
 
-    /* Kurznotiz: bewusst kurz, gleich hohe Ansicht */
-    .desc{
-      margin-top:10px;
+    /* Kurznotiz als 3 Block-Elemente */
+    .short{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
+    }
+
+    .sitem{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 10px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(0,0,0,.08);
+    }
+
+    .stag{
+      flex:0 0 auto;
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background: rgba(255,255,255,.14);
+      border:1px solid var(--line);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      font-size:.85rem;
+      color:var(--text);
+      margin-top:1px;
+    }
+
+    .stext{
       color:var(--muted);
       font-size:.92rem;
       line-height:1.25;
-
-      display:-webkit-box;
-      -webkit-line-clamp:2;      /* sehr kurz in der Hauptansicht */
-      -webkit-box-orient:vertical;
-      overflow:hidden;
     }
 
-    /* Aufklappen: sichtbar „im Layout“, nicht Fließtext */
     details{
       width:100%;
-      margin-top:10px;
+      margin-top:12px;
       border-top:1px solid var(--line);
       padding-top:10px;
     }
@@ -164,7 +182,7 @@
       cursor:pointer;
       user-select:none;
       color:var(--text);
-      font-weight:800;
+      font-weight:900;
       font-size:.92rem;
       opacity:.95;
     }
@@ -188,7 +206,6 @@
     .stages li{ margin:6px 0; }
     .stages b{ color:var(--text); }
 
-    /* Buttons */
     .btnrow{
       display:flex;
       gap:10px;
@@ -216,7 +233,6 @@
       color:#1f2328;
     }
 
-    /* Footer */
     .footer{
       position:fixed;
       left:0; right:0; bottom:0;
@@ -248,7 +264,6 @@
 
     <div class="rule"></div>
 
-    <!-- Kategorien (übersichtlich + hervorgehoben) -->
     <div class="headers">
       <div class="box hbox">
         <p class="cat"><span>Lernen aktivieren</span><small>(Was tun Lernende im Lernprozess?)</small></p>
@@ -261,15 +276,18 @@
       </div>
     </div>
 
-    <!-- ZEILE 1: 1.1 / 2.1 / 3.1 -->
+    <!-- ZEILE 1 -->
     <div class="rowgrid">
-      <!-- 1.1 -->
       <div class="box slider-row">
         <div class="label">1.1 Kognitive Aktivierung/Aufgabenqualität</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Bekannte Aufgabenformate nach Schema-F bearbeiten → Vorwissen aktivieren & bedeutsame Probleme lösen → Strategien transferieren & Vorgehen reflektieren</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Bekannte Aufgabenformate nach Schema-F bearbeiten</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Vorwissen aktivieren & bedeutsame Probleme lösen</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Strategien transferieren & Vorgehen reflektieren</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -283,13 +301,16 @@
         </details>
       </div>
 
-      <!-- 2.1 -->
       <div class="box slider-row">
         <div class="label">2.1 Bedeutsamkeit & Sinn des Lerngegenstandes</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Pflichtaufgaben → Transparente Ziele & erste Anknüpfungspunkte → Knüpft an Lebenswelt an & ist bedeutsam</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Pflichtaufgaben</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Transparente Ziele & erste Anknüpfungspunkte</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Knüpft an Lebenswelt an & ist bedeutsam</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -303,13 +324,16 @@
         </details>
       </div>
 
-      <!-- 3.1 -->
       <div class="box slider-row">
         <div class="label">3.1 Transparenz von Qualität & Beurteilungskriterien</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Kriterien bei Lehrkraft → Offengelegte Kriterien: Einschätzung abgleichen & Weiterarbeit planen → Kriterien gemeinsam entwickeln & nutzen</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Kriterien bei Lehrkraft</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Offengelegte Kriterien: Einschätzung abgleichen & Weiterarbeit planen</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Kriterien gemeinsam entwickeln & nutzen</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -324,15 +348,18 @@
       </div>
     </div>
 
-    <!-- ZEILE 2: 1.2 / 2.2 / 3.2 -->
+    <!-- ZEILE 2 -->
     <div class="rowgrid">
-      <!-- 1.2 -->
       <div class="box slider-row">
         <div class="label">1.2 Aktive Prozessbeteiligung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Vorgehen vorgegeben → Wahlmöglichkeiten im Rahmen → Gemeinsam planen & abstimmen</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Vorgehen vorgegeben</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Wahlmöglichkeiten im Rahmen</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Gemeinsam planen & abstimmen</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -346,13 +373,16 @@
         </details>
       </div>
 
-      <!-- 2.2 -->
       <div class="box slider-row">
         <div class="label">2.2 Teilnahme, Mitgestaltung & Verantwortung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Reaktiv beteiligt → Ideen einbringen & Verantwortung übernehmen → Lernprozesse aktiv mitgestalten</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Reaktiv beteiligt</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Ideen einbringen & Verantwortung übernehmen</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Lernprozesse aktiv mitgestalten</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -366,13 +396,16 @@
         </details>
       </div>
 
-      <!-- 3.2 -->
       <div class="box slider-row">
         <div class="label">3.2 Reflexion von Lernprozessen & Lernentwicklung</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Ergebnisse im Fokus → Lernen beschreiben & einordnen → Lernwege reflektieren & Schlussfolgerungen nutzen</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Ergebnisse im Fokus</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Lernen beschreiben & einordnen</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Lernwege reflektieren & Schlussfolgerungen nutzen</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -387,15 +420,18 @@
       </div>
     </div>
 
-    <!-- ZEILE 3: 1.3 / 2.3 / 3.3 -->
+    <!-- ZEILE 3 -->
     <div class="rowgrid">
-      <!-- 1.3 -->
       <div class="box slider-row">
         <div class="label">1.3 Selbstwirksamkeit</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Pflichterfüllung → Fortschritte erleben & Zutrauen gewinnen → Erfolge reflektieren & nutzen</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Pflichterfüllung</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Fortschritte erleben & Zutrauen gewinnen</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Erfolge reflektieren & nutzen</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -409,13 +445,16 @@
         </details>
       </div>
 
-      <!-- 2.3 -->
       <div class="box slider-row">
         <div class="label">2.3 Resonanz, Anerkennung & Wirksamkeit</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Notenorientiert & lehrkraftzentriert → Lernstand klären & Anerkennung geben → Resonanz erfahren & fortwirken</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Notenorientiert & lehrkraftzentriert</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">Lernstand klären & Anerkennung geben</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">Resonanz erfahren & fortwirken</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
@@ -429,13 +468,16 @@
         </details>
       </div>
 
-      <!-- 3.3 -->
       <div class="box slider-row">
         <div class="label">3.3 Wirkung & Anschlussfähigkeit in der Schulgemeinde</div>
         <input class="slider" type="range" min="0" max="2" step="1" value="0">
         <div class="dots" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
 
-        <div class="desc">Bedeutung für Einzelne → In Lerngruppe sichtbar → In Schulgemeinde aufgreifen & weiterentwickeln</div>
+        <div class="short">
+          <div class="sitem"><div class="stag">1</div><div class="stext">Bedeutung für Einzelne</div></div>
+          <div class="sitem"><div class="stag">2</div><div class="stext">In Lerngruppe sichtbar</div></div>
+          <div class="sitem"><div class="stag">3</div><div class="stext">In Schulgemeinde aufgreifen & weiterentwickeln</div></div>
+        </div>
 
         <details>
           <summary>Wortlaut anzeigen</summary>
