@@ -673,13 +673,13 @@
 
     <!-- Spinne unten -->
     <div class="box spiderbox">
-      <p class="label" style="margin-bottom:10px;">Lernsichtbarkeits-Profil</p>
+      <p class="label" style="margin-bottom:10px;">Formatspinne</p>
       <canvas id="spider" width="900" height="520" style="width:100%; height:auto;"></canvas>
     </div>
 
     <div class="btnrow">
       <button class="btn btn-danger" type="button" id="reset">Alle Regler zurücksetzen</button>
-      <button class="btn btn-accent" type="button" id="downloadSpider">Profil herunterladen (PNG)</button>
+      <button class="btn btn-accent" type="button" id="downloadSpider">Spinne herunterladen (PNG)</button>
     </div>
   </div>
 
@@ -903,7 +903,7 @@
       o.textAlign = "left";
       o.textBaseline = "alphabetic";
       o.font = "800 22px system-ui, -apple-system, Segoe UI, Roboto, Arial";
-      o.fillText("Lernsichtbarkeits-Profil", 24, 38);
+      o.fillText("Lernsichtbarkeit – Formatspinne", 24, 38);
       o.font = "500 15px system-ui, -apple-system, Segoe UI, Roboto, Arial";
       o.fillStyle = "rgba(234,246,246,.7)";
       o.fillText(`Einschätzung vom ${pad2(d.getDate())}.${pad2(d.getMonth()+1)}.${d.getFullYear()}`, 24, 58);
@@ -911,7 +911,7 @@
       o.fillText("Ingerfeld + Laube · ingerfeldundlaube.github.io/Lernsichtbarkeit", out.width - 24, out.height - 16);
 
       const link = document.createElement('a');
-      link.download = `Lernsichtbarkeits-Profil_${stamp}.png`;
+      link.download = `Formatspinne_${stamp}.png`;
       link.href = out.toDataURL('image/png');
       link.click();
     });
