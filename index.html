@@ -5,10 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lernsichtbarkeit</title>
 
+  <meta name="description" content="Aktivierung, Motivation und Lernen nachvollziehbar machen – mit Schiebereglern reflektieren." />
+
+  <!-- Vorschau beim Teilen (Messenger, LinkedIn, Mail …) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:url" content="https://ingerfeldundlaube.github.io/Lernsichtbarkeit/" />
   <meta property="og:title" content="Lernsichtbarkeit – Schieberegler" />
-<meta property="og:description" content="Aktivierung, Motivation und Lernen nachvollziehbar machen – mit Schiebereglern reflektieren." />
-<meta property="og:image" content="https://ingerfeldundlaube.github.io/Lernsichtbarkeit/preview.png" />
-<meta property="og:type" content="website" />
+  <meta property="og:description" content="Aktivierung, Motivation und Lernen nachvollziehbar machen – mit Schiebereglern reflektieren." />
+  <meta property="og:image" content="https://ingerfeldundlaube.github.io/Lernsichtbarkeit/preview.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Ansicht der Schieberegler zur Lernsichtbarkeit" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root{
@@ -310,7 +320,7 @@
     }
 
     #spider{
-      background: rgba(0,0,0,.06);
+      background: #19646e;
       border:1px solid var(--line);
       border-radius:14px;
     }
@@ -740,6 +750,8 @@
       out.forEach((ln,i)=> ctx.fillText(ln, x, y + i*lineHeight));
     }
 
+    const SPIDER_BG = "#19646e";
+
     function drawSpider(){
       const canvas = document.getElementById('spider');
       if(!canvas) return;
@@ -749,6 +761,11 @@
       const H = canvas.height;
 
       ctx.clearRect(0,0,W,H);
+
+      // Feste Hintergrundfarbe, damit die heruntergeladene PNG nicht durchsichtig ist
+      // (entspricht dem Farbton, den die Spinne auf der Seite hat)
+      ctx.fillStyle = SPIDER_BG;
+      ctx.fillRect(0,0,W,H);
 
       const values = getValues();
       const maxV = 2;
